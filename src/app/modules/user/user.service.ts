@@ -32,6 +32,11 @@ const deleteFromDB = async (id: string): Promise<User | null> => {
      return result;
 }
 
+const getProfile = async (id: string): Promise<User | null> => {
+     const result = await prisma.user.findUnique({ where: { id } });
+     return result;
+}
+
 
 
 
@@ -42,5 +47,7 @@ export const UserService = {
      getAllFromDB,
      getByIdFromDB,
      updateIntoDB,
-     deleteFromDB
+     deleteFromDB,
+     getProfile,
+
 }
