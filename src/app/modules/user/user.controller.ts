@@ -18,6 +18,60 @@ const insertIntoDB: RequestHandler = catchAsync(async (req: Request, res: Respon
 });
 
 
+const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
+     const result = await UserService.getAllFromDB();
+
+     sendResponse(res, {
+          statusCode: httpStatus.OK,
+          success: true,
+          message: "User fetched successfully",
+          data: result
+     });
+});
+
+const getByIdFromDB = catchAsync(async (req: Request, res: Response) => {
+     const id = req.params.id;
+     const result = await UserService.getByIdFromDB(id);
+
+     sendResponse(res, {
+          statusCode: httpStatus.OK,
+          success: true,
+          message: "User fetched successfully",
+          data: result
+     });
+});
+
+const updateIntoDB = catchAsync(async (req: Request, res: Response) => {
+     const id = req.params.id;
+     const result = await UserService.updateIntoDB(id, req.body);
+
+     sendResponse(res, {
+          statusCode: httpStatus.OK,
+          success: true,
+          message: "User updated successfully",
+          data: result
+     });
+});
+
+const deleteFromDB = catchAsync(async (req: Request, res: Response) => {
+     const id = req.params.id;
+     const result = await UserService.deleteFromDB(id);
+
+     sendResponse(res, {
+          statusCode: httpStatus.OK,
+          success: true,
+          message: "User deleted successfully",
+          data: result
+     });
+
+});
+
+
+
 export const UserController = {
-     insertIntoDB
+     insertIntoDB,
+     getAllFromDB,
+     getByIdFromDB,
+     updateIntoDB,
+     deleteFromDB
 }

@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\FOYSAL\\Project\\level-2\\Assignment\\book-catallog-backend-assignment-8\\logs\\winston\\successes\\.e8b04dfa54598e98ed0ae21440e80b7bf2efe1cc-audit.json",
+    "files": [
+        {
+            "date": 1693499944969,
+            "name": "C:\\Users\\FOYSAL\\Project\\level-2\\Assignment\\book-catallog-backend-assignment-8\\logs\\winston\\successes\\phu-2023-31-08-22-success.log",
+            "hash": "f5412061e298b30ba172e4b8ab6fad4c8629db22039f4b896072c1a286825182"
+        },
+        {
+            "date": 1693501204409,
+            "name": "C:\\Users\\FOYSAL\\Project\\level-2\\Assignment\\book-catallog-backend-assignment-8\\logs\\winston\\successes\\phu-2023-31-08-23-success.log",
+            "hash": "ecf554b8c715a4a23f41c13e3f59ee2c1d312d35ea0606511d3220432c429629"
+        }
+    ],
+    "hashType": "sha256"
+}
