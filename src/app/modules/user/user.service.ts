@@ -9,6 +9,16 @@ import { jwtHelpers } from "../../../helpers/jwtHelpers";
 import prisma from "../../../shared/prisma";
 
 const insertIntoDB = async (user: User): Promise<User> => {
+
+     if (!user.password) {
+          user.password = config.default_pass as string;
+     }
+
+     user.password = await bcrypt.hash(
+          user.password,
+          Number(config.bycrypt_salt_rounds)
+     );
+
      const result = await prisma.user.create({ data: user });
      return result;
 
@@ -44,13 +54,16 @@ const getProfile = async (id: string): Promise<User | null> => {
      return result;
 }
 
-const loginUser = async (payload: { id: string, password: string }) => {
-     const { id, password } = payload;
+const loginUser = async (payload: { email: string, password: string }) => {
+     const { email, password } = payload;
+
+     console.log(payload)
+
      const isPasswordMatched = async (givenPassword: string, savedPassword: string) => {
 
           return await bcrypt.compare(givenPassword, savedPassword);
      }
-     const isUserExist = await prisma.user.findUnique({ where: { id } });
+     const isUserExist = await prisma.user.findUnique({ where: { email } });
 
      if (!isUserExist) {
           throw new ApiError(httpStatus.NOT_FOUND, 'User does not exist');
@@ -65,9 +78,9 @@ const loginUser = async (payload: { id: string, password: string }) => {
 
      //create access token & refresh token
 
-     const { id: userId, role } = isUserExist;
+     const { email: userEmail, role } = isUserExist;
      const accessToken = jwtHelpers.createToken(
-          { userId, role },
+          { userEmail, role },
           config.jwt.secret as Secret,
           config.jwt.expires_in as string
      );

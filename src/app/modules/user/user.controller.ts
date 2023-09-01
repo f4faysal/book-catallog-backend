@@ -80,6 +80,23 @@ const getProfile = catchAsync(async (req: Request, res: Response) => {
      });
 });
 
+const loginUser = catchAsync(async (req: Request, res: Response) => {
+
+     const { ...loginData } = req.body;
+
+     const result = await UserService.loginUser(loginData);
+
+     // set refresh token into cookie
+
+
+     sendResponse(res, {
+          statusCode: 200,
+          success: true,
+          message: 'User logged in successfully !',
+          token: result,
+     });
+
+});
 
 
 
@@ -89,5 +106,6 @@ export const UserController = {
      getByIdFromDB,
      updateIntoDB,
      deleteFromDB,
-     getProfile
+     getProfile,
+     loginUser
 }
