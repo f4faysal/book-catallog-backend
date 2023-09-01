@@ -49,8 +49,9 @@ const deleteFromDB = async (id: string): Promise<User | null> => {
      return result;
 }
 
-const getProfile = async (id: string): Promise<User | null> => {
-     const result = await prisma.user.findUnique({ where: { id } });
+const getProfile = async (userEmail: string): Promise<User | null> => {
+     // const result = await prisma.user.findUnique({ where: { email } });
+     const result = await prisma.user.findUnique({ where: { email: userEmail } });
      return result;
 }
 

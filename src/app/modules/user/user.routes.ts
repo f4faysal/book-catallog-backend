@@ -12,7 +12,7 @@ router.get("/users", auth(ENUM_USER_ROLE.ADMIN), UserController.getAllFromDB);
 router.get("/users/:id", auth(ENUM_USER_ROLE.ADMIN), UserController.getByIdFromDB);
 router.patch("/users/:id", auth(ENUM_USER_ROLE.ADMIN), UserController.updateIntoDB);
 router.delete("/users/:id", auth(ENUM_USER_ROLE.ADMIN), UserController.deleteFromDB);
-router.get("/profile ", UserController.getProfile)
+router.get("/profile", auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.CUSTOMER), UserController.getProfile)
 
 router.post("/auth/signin", UserController.loginUser);
 
