@@ -10,9 +10,10 @@ const router = express.Router();
 
 router.post("/create-book", auth(ENUM_USER_ROLE.ADMIN), BookController.insertIntoDB);
 router.get("/", BookController.getAllFromDB);
+router.get("/:categoryId/category ", BookController.getByIdFromDB);
 router.get("/:id", BookController.getByIdFromDB);
-router.patch("/:id", BookController.updateIntoDB);
-router.delete("/:id", BookController.deleteFromDB);
+router.patch("/:id", auth(ENUM_USER_ROLE.ADMIN), BookController.updateIntoDB);
+router.delete("/:id", auth(ENUM_USER_ROLE.ADMIN), BookController.deleteFromDB);
 
 
 
