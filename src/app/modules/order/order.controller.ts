@@ -6,7 +6,13 @@ import { OrderService } from "./order.service";
 
 
 const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
-     const resutlt = await OrderService.insertIntoDB(req.body);
+
+
+     const { userEmail } = req.user as { userEmail: string };
+     const products = req.body;
+
+
+     const resutlt = await OrderService.insertIntoDB(products, userEmail);
 
      sendResponse(res, {
           statusCode: httpStatus.OK,

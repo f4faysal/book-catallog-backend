@@ -44,6 +44,16 @@
             "date": 1693580926188,
             "name": "C:\\Users\\FOYSAL\\Project\\level-2\\Assignment\\book-catallog-backend-assignment-8\\logs\\winston\\errors\\phu-2023-01-09-21-error.log",
             "hash": "0fb728583c0e3d39e29c0a0c779b53f90717a661c87dc87edb7e1ed7ec674639"
+        },
+        {
+            "date": 1693584194366,
+            "name": "C:\\Users\\FOYSAL\\Project\\level-2\\Assignment\\book-catallog-backend-assignment-8\\logs\\winston\\errors\\phu-2023-01-09-22-error.log",
+            "hash": "44197405cc5f5a6e791c5d1addce39b0fcee036bc262a31cc6090462ccd6e351"
+        },
+        {
+            "date": 1693587642403,
+            "name": "C:\\Users\\FOYSAL\\Project\\level-2\\Assignment\\book-catallog-backend-assignment-8\\logs\\winston\\errors\\phu-2023-01-09-23-error.log",
+            "hash": "6767018c1f2398bad37ec83ca31bc2d25d7f436e6b31dc5e0b3d19061b65c444"
         }
     ],
     "hashType": "sha256"

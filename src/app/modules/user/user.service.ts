@@ -58,7 +58,6 @@ const getProfile = async (userEmail: string): Promise<User | null> => {
 const loginUser = async (payload: { email: string, password: string }) => {
      const { email, password } = payload;
 
-     console.log(payload)
 
      const isPasswordMatched = async (givenPassword: string, savedPassword: string) => {
 

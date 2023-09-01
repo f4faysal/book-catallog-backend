@@ -2,12 +2,20 @@ import { Order } from "@prisma/client";
 import prisma from "../../../shared/prisma";
 
 
-const insertIntoDB = async (data: Order): Promise<Order> => {
-     const result = await prisma.order.create(
-          {
-               data
-          });
-     return result;
+const insertIntoDB = async (paylod: Order, userEmail: string): Promise<Order> => {
+
+     const data = {
+          email: userEmail,
+          ...paylod,
+     }
+
+     console.log(data)
+
+     // const result = await prisma.order.create(
+     //      {
+     //           data
+     //      });
+     // return result;
 
 }
 
