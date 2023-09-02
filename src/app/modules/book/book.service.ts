@@ -114,7 +114,7 @@ const getAllFromDB = async (
      filters: IBookFilters,
      paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<Book[]>> => {
-     const { search, minPrice, maxPrice, ...filtersData } = filters;
+     const { search, minPrice, maxPrice, category } = filters;
      const { page, limit, skip } = paginationHelpers.calculatePagination(paginationOptions);
 
      const andConditions = [];
@@ -130,15 +130,15 @@ const getAllFromDB = async (
           });
      }
 
-     if (Object.keys(filtersData).length > 0) {
-          andConditions.push({
-               AND: Object.keys(filtersData).map((key) => ({
-                    [key]: {
-                         equals: (filtersData as any)[key],
-                    },
-               })),
-          });
-     }
+     // if (Object.keys(filtersData).length > 0) {
+     //      andConditions.push({
+     //           AND: Object.keys(filtersData).map((key) => ({
+     //                [key]: {
+     //                     equals: (filtersData as any)[key],
+     //                },
+     //           })),
+     //      });
+     // }
 
      if (minPrice !== undefined) {
           andConditions.push({
@@ -152,6 +152,13 @@ const getAllFromDB = async (
           andConditions.push({
                price: {
                     lte: parseFloat(maxPrice), // Parse maxPrice as a float
+               },
+          });
+     }
+     if (category !== undefined) {
+          andConditions.push({
+               categoryId: {
+                    equals: category
                },
           });
      }
