@@ -68,7 +68,6 @@ model ReviewAndRating {
 
 model Order {
   id           String   @id @default(uuid())
-  orderDate    DateTime
   status       Status   @default(pending)
   createdAt    DateTime @default(now())
   orderedBooks Json

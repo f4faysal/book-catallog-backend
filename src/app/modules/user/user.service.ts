@@ -49,9 +49,9 @@ const deleteFromDB = async (id: string): Promise<User | null> => {
      return result;
 }
 
-const getProfile = async (userEmail: string): Promise<User | null> => {
+const getProfile = async (userId: string): Promise<User | null> => {
      // const result = await prisma.user.findUnique({ where: { email } });
-     const result = await prisma.user.findUnique({ where: { email: userEmail } });
+     const result = await prisma.user.findUnique({ where: { id: userId } });
      return result;
 }
 
@@ -78,9 +78,9 @@ const loginUser = async (payload: { email: string, password: string }) => {
 
      //create access token & refresh token
 
-     const { email: userEmail, role } = isUserExist;
+     const { id: userId, role } = isUserExist;
      const accessToken = jwtHelpers.createToken(
-          { userEmail, role },
+          { userId, role },
           config.jwt.secret as Secret,
           config.jwt.expires_in as string
      );

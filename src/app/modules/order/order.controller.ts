@@ -8,11 +8,11 @@ import { OrderService } from "./order.service";
 const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
 
 
-     const { userEmail } = req.user as { userEmail: string };
+     const { userId } = req.user as { userId: string };
      const products = req.body;
 
 
-     const resutlt = await OrderService.insertIntoDB(products, userEmail);
+     const resutlt = await OrderService.insertIntoDB(products, userId);
 
      sendResponse(res, {
           statusCode: httpStatus.OK,
@@ -24,7 +24,10 @@ const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
 
 
 const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
-     const resutlt = await OrderService.getAllFromDB();
+
+     const { userId, role } = req.user as { userId: string, role: string };
+
+     const resutlt = await OrderService.getAllFromDB(userId, role);
 
      sendResponse(res, {
           statusCode: httpStatus.OK,
@@ -36,8 +39,11 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
 
 
 const getByIdFromDB = catchAsync(async (req: Request, res: Response) => {
-     const { id } = req.params;
-     const resutlt = await OrderService.getByIdFromDB(id);
+     const { orderId } = req.params;
+     const { userId, role } = req.user as { userId: string, role: string };
+
+
+     const resutlt = await OrderService.getByIdFromDB(orderId, userId, role);
 
      sendResponse(res, {
           statusCode: httpStatus.OK,

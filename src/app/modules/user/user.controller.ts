@@ -69,9 +69,9 @@ const deleteFromDB = catchAsync(async (req: Request, res: Response) => {
 const getProfile = catchAsync(async (req: Request, res: Response) => {
 
      // Retrieve the user's _id & role from the access token
-     const { userEmail } = req.user as { userEmail: string };
+     const { userId } = req.user as { userId: string };
 
-     const result = await UserService.getProfile(userEmail);
+     const result = await UserService.getProfile(userId);
 
      sendResponse(res, {
           statusCode: httpStatus.OK,
