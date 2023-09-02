@@ -88,23 +88,6 @@ To use the Book Listing Application backend, follow these steps:
 
 The following API endpoints are available:
 
-- **Create a Book**: `POST /api/books`
-- **Get All Books**: `GET /api/books`
-- **Get a Book by ID**: `GET /api/books/:id`
-- **Update a Book**: `PUT /api/books/:id`
-- **Delete a Book**: `DELETE /api/books/:id`
-- **Search and Filter Books**: `GET /api/books/search`
-
-For detailed information on how to use each endpoint, refer to the API documentation.
-
-## Contributing
-
-Contributions are welcome! Feel free to open issues or pull requests for any improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ### Live Link: https://example.com
 
 ### Application Routes:
@@ -141,4 +124,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - api/v1/orders (GET)
 - api/v1/orders/:orderId (GET)
 
+
+For detailed information on how to use each endpoint, refer to the API documentation.
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or pull requests for any improvements or bug fixes.
 Happy coding! 3. Integrate this backend with the frontend or client application of your choice.
