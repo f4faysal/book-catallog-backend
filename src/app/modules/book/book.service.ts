@@ -130,20 +130,11 @@ const getAllFromDB = async (
           });
      }
 
-     // if (Object.keys(filtersData).length > 0) {
-     //      andConditions.push({
-     //           AND: Object.keys(filtersData).map((key) => ({
-     //                [key]: {
-     //                     equals: (filtersData as any)[key],
-     //                },
-     //           })),
-     //      });
-     // }
 
      if (minPrice !== undefined) {
           andConditions.push({
                price: {
-                    gte: parseFloat(minPrice), // Parse minPrice as a float
+                    gte: parseFloat(minPrice),
                },
           });
      }
@@ -151,7 +142,7 @@ const getAllFromDB = async (
      if (maxPrice !== undefined) {
           andConditions.push({
                price: {
-                    lte: parseFloat(maxPrice), // Parse maxPrice as a float
+                    lte: parseFloat(maxPrice),
                },
           });
      }

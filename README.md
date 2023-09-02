@@ -40,7 +40,7 @@ Before you begin, ensure you have met the following requirements:
 1. Clone this repository:
 
    ```bash
- https://github.com/f4faysal/book-catallog-backend.git
+   https://github.com/f4faysal/book-catallog-backend.git
    ```
 
 2. Navigate to the project directory:
@@ -111,6 +111,18 @@ The following API endpoints are available:
 
 ### Books
 
+- Search, Filter, Pagination (GET) Example:
+
+```bash
+   api/v1/books/?page=1&limit=10&search=Faysal&minPrice=250&maxPrice=500&category=75e203d3-6b59-4c00-8ef8-a5319b1aeee6
+```
+
+- Sort, Filter, Pagination (GET) Example:
+
+```bash
+   api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc
+```
+
 - api/v1/books/create-book (POST)
 - api/v1/books (GET)
 - api/v1/books/:categoryId/category (GET)
@@ -123,7 +135,6 @@ The following API endpoints are available:
 - api/v1/orders/create-order (POST)
 - api/v1/orders (GET)
 - api/v1/orders/:orderId (GET)
-
 
 For detailed information on how to use each endpoint, refer to the API documentation.
 
