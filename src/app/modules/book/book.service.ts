@@ -32,15 +32,19 @@ const getAllFromDB = async (
 
      const andConditions = [];
 
+     console.log(search)
+
+
+
      if (search) {
           andConditions.push({
-               $or: bookSearchableFields.map(field => ({
+               OR: bookSearchableFields.map((field) => ({
                     [field]: {
-                         $regex: search,
-                         $options: 'i',
-                    },
-               })),
-          });
+                         contains: search,
+                         mode: 'insensitive'
+                    }
+               }))
+          })
      }
 
 
