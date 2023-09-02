@@ -13,7 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BookService = void 0;
+const paginationHelper_1 = require("../../../helpers/paginationHelper");
 const prisma_1 = __importDefault(require("../../../shared/prisma"));
+const book_contants_1 = require("./book.contants");
 const insertIntoDB = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma_1.default.book.create({
         data,
@@ -23,13 +25,68 @@ const insertIntoDB = (data) => __awaiter(void 0, void 0, void 0, function* () {
     });
     return result;
 });
-const getAllFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
+const getAllFromDB = (filters, paginationOptions) => __awaiter(void 0, void 0, void 0, function* () {
+    const { search, minPrice, maxPrice, category } = filters;
+    const { page, limit, skip } = paginationHelper_1.paginationHelpers.calculatePagination(paginationOptions);
+    const andConditions = [];
+    if (search) {
+        andConditions.push({
+            OR: book_contants_1.bookSearchableFields.map((field) => ({
+                [field]: {
+                    contains: search,
+                    mode: 'insensitive',
+                },
+            })),
+        });
+    }
+    if (minPrice !== undefined) {
+        andConditions.push({
+            price: {
+                gte: parseFloat(minPrice),
+            },
+        });
+    }
+    if (maxPrice !== undefined) {
+        andConditions.push({
+            price: {
+                lte: parseFloat(maxPrice),
+            },
+        });
+    }
+    if (category !== undefined) {
+        andConditions.push({
+            categoryId: {
+                equals: category
+            },
+        });
+    }
+    const whereConditions = andConditions.length > 0 ? { AND: andConditions } : {};
     const result = yield prisma_1.default.book.findMany({
         include: {
-            category: true
-        }
+            category: true,
+        },
+        where: whereConditions,
+        skip,
+        take: limit,
+        orderBy: paginationOptions.sortBy && paginationOptions.sortOrder
+            ? { [paginationOptions.sortBy]: paginationOptions.sortOrder }
+            : {
+                price: 'asc',
+            },
     });
-    return result;
+    const total = yield prisma_1.default.book.count({
+        where: whereConditions,
+    });
+    const totalPage = Math.ceil(total / limit);
+    return {
+        meta: {
+            total,
+            page,
+            limit,
+            totalPage,
+        },
+        data: result,
+    };
 });
 const getByIdFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma_1.default.book.findUnique({ where: { id } });
@@ -43,10 +100,46 @@ const deleteFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma_1.default.book.delete({ where: { id } });
     return result;
 });
+const getBooksByCategoryId = (categoryId, options) => __awaiter(void 0, void 0, void 0, function* () {
+    const { page, limit, skip } = paginationHelper_1.paginationHelpers.calculatePagination(options);
+    const result = yield prisma_1.default.book.findMany({
+        where: {
+            category: {
+                id: categoryId
+            }
+        },
+        skip,
+        take: limit,
+        orderBy: options.sortBy && options.sortOrder ? { [options.sortBy]: options.sortOrder } : {
+            price: 'desc'
+        },
+        include: {
+            category: true
+        }
+    });
+    const total = yield prisma_1.default.book.count({
+        where: {
+            category: {
+                id: categoryId
+            }
+        }
+    });
+    const totalPage = Math.ceil(total / limit);
+    return {
+        meta: {
+            total,
+            page,
+            limit,
+            totalPage
+        },
+        data: result
+    };
+});
 exports.BookService = {
     insertIntoDB,
     getAllFromDB,
     getByIdFromDB,
     updateIntoDB,
-    deleteFromDB
+    deleteFromDB,
+    getBooksByCategoryId
 };

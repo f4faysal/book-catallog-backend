@@ -14,8 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BookController = void 0;
 const http_status_1 = __importDefault(require("http-status"));
+const pagination_1 = require("../../../constants/pagination");
 const catchAsync_1 = __importDefault(require("../../../shared/catchAsync"));
+const pick_1 = __importDefault(require("../../../shared/pick"));
 const sendResponse_1 = __importDefault(require("../../../shared/sendResponse"));
+const book_contants_1 = require("./book.contants");
 const book_service_1 = require("./book.service");
 const insertIntoDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield book_service_1.BookService.insertIntoDB(req.body);
@@ -27,7 +30,20 @@ const insertIntoDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, v
     });
 }));
 const getAllFromDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield book_service_1.BookService.getAllFromDB();
+    const filters = (0, pick_1.default)(req.query, book_contants_1.bookFilterableFields);
+    const paginationOptions = (0, pick_1.default)(req.query, pagination_1.paginationFields);
+    const result = yield book_service_1.BookService.getAllFromDB(filters, paginationOptions);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: "Book fetched successfully",
+        data: result
+    });
+}));
+const getBooksByCategoryId = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const categoryId = req.params.categoryId;
+    const options = (0, pick_1.default)(req.query, pagination_1.paginationFields);
+    const result = yield book_service_1.BookService.getBooksByCategoryId(categoryId, options);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
@@ -70,5 +86,6 @@ exports.BookController = {
     getAllFromDB,
     getByIdFromDB,
     updateIntoDB,
-    deleteFromDB
+    deleteFromDB,
+    getBooksByCategoryId
 };

@@ -88,54 +88,64 @@ To use the Book Listing Application backend, follow these steps:
 
 The following API endpoints are available:
 
-### Live Link: https://example.com
+### Live Link: [https://book-catallog-backend.vercel.app/api/v1/](https://book-catallog-backend.vercel.app/api/v1/)
 
 ### Application Routes:
 
+### Auth
+
+- https://book-catallog-backend.vercel.app/api/v1/auth/signup (POST)
+- https://book-catallog-backend.vercel.app/api/v1/auth/signin (POST)
+- sign in body example data:
+  ```bash
+   {
+    "email": "admin@gmail.com",
+    "password": "123456"
+    }
+  ```
+
 #### User
 
-- api/v1/auth/signup (POST)
-- api/v1/users (GET)
-- api/v1/users/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
-- api/v1/users/6177a5b87d32123f08d2f5d4 (PATCH)
-- api/v1/users/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved in your database
-- api/v1/profile (GET)
+- https://book-catallog-backend.vercel.app/api/v1/users (GET)
+- https://book-catallog-backend.vercel.app/api/v1/users/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
+- https://book-catallog-backend.vercel.app/api/v1/users/6177a5b87d32123f08d2f5d4 (PATCH)
+- https://book-catallog-backend.vercel.app/api/v1/users/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved in your database
+- https://book-catallog-backend.vercel.app/api/v1/profile (GET)
 
 ### Category
 
-- api/v1/categories/create-category (POST)
-- api/v1/categories (GET)
-- api/v1/categories/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
-- api/v1/categories/6177a5b87d32123f08d2f5d4 (PATCH)
-- api/v1/categories/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved in your database
+- https://book-catallog-backend.vercel.app/api/v1/categories/create-category (POST)
+- https://book-catallog-backend.vercel.app/api/v1/categories (GET)
+- https://book-catallog-backend.vercel.app/api/v1/categories/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
+- https://book-catallog-backend.vercel.app/api/v1/categories/6177a5b87d32123f08d2f5d4 (PATCH)
+- https://book-catallog-backend.vercel.app/api/v1/categories/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved in your database
 
 ### Books
 
-- Search, Filter, Pagination (GET) Example:
+- Search, Filter, Pagination (GET) Example: [Link to Example API](https://book-catallog-backend.vercel.app/i/v1/books/?page=1&limit=10&search=Faysal&minPrice=250&maxPrice=500&category=75e203d3-6b59-4c00-8ef8-a5319b1aeee6)
 
 ```bash
-   api/v1/books/?page=1&limit=10&search=Faysal&minPrice=250&maxPrice=500&category=75e203d3-6b59-4c00-8ef8-a5319b1aeee6
+   https://book-catallog-backend.vercel.app/i/v1/books/?page=1&limit=10&search=Faysal&minPrice=250&maxPrice=500&category=75e203d3-6b59-4c00-8ef8-a5319b1aeee6
 ```
 
-- Sort, Filter, Pagination (GET) Example: [Link to Example API](https://example.com/api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc)
-
+- Sort, Filter, Pagination (GET) Example: [Link to Example API](https://book-catallog-backend.vercel.app/api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc)
 
 ```bash
-   api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc
+   aphttps://book-catallog-backend.vercel.app/api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc
 ```
 
-- api/v1/books/create-book (POST)
-- api/v1/books (GET)
-- api/v1/books/:categoryId/category (GET)
-- api/v1/books/:id (GET)
-- api/v1/books/:id (PATCH)
-- api/v1/books/:id (DELETE)
+- https://book-catallog-backend.vercel.app/api/v1/books/create-book (POST)
+- https://book-catallog-backend.vercel.app/api/v1/books (GET)
+- https://book-catallog-backend.vercel.app/api/v1/books/:categoryId/category (GET)
+- https://book-catallog-backend.vercel.app/api/v1/books/:id (GET)
+- https://book-catallog-backend.vercel.app/api/v1/books/:id (PATCH)
+- https://book-catallog-backend.vercel.app/api/v1/books/:id (DELETE)
 
 ### Orders
 
-- api/v1/orders/create-order (POST)
-- api/v1/orders (GET)
-- api/v1/orders/:orderId (GET)
+- https://book-catallog-backend.vercel.app/api/v1/orders/create-order (POST)
+- https://book-catallog-backend.vercel.app/api/v1/orders (GET)
+- https://book-catallog-backend.vercel.app/api/v1/orders/:orderId (GET)
 
 For detailed information on how to use each endpoint, refer to the API documentation.
 
