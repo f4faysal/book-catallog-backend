@@ -35,7 +35,6 @@ const getAllFromDB = async (
      console.log(search)
 
 
-
      if (search) {
           andConditions.push({
                OR: bookSearchableFields.map((field) => ({
