@@ -122,10 +122,10 @@ The following API endpoints are available:
 
 ### Books
 
-- Search, Filter, Pagination (GET) Example: [Link to Example API](https://book-catallog-backend.vercel.app/i/v1/books/?page=1&limit=10&search=Faysal&minPrice=250&maxPrice=500&category=75e203d3-6b59-4c00-8ef8-a5319b1aeee6)
+- Search, Filter, Pagination (GET) Example: [Link to Example API](https://book-catallog-backend.vercel.app/api/v1/books/?page=1&limit=10&search=Faysal&minPrice=250&maxPrice=500&category=75e203d3-6b59-4c00-8ef8-a5319b1aeee6)
 
 ```bash
-   https://book-catallog-backend.vercel.app/i/v1/books/?page=1&limit=10&search=Faysal&minPrice=250&maxPrice=500&category=75e203d3-6b59-4c00-8ef8-a5319b1aeee6
+   https://book-catallog-backend.vercel.app/api/v1/books/?page=1&limit=10&search=Faysal&minPrice=250&maxPrice=500&category=75e203d3-6b59-4c00-8ef8-a5319b1aeee6
 ```
 
 - Sort, Filter, Pagination (GET) Example: [Link to Example API](https://book-catallog-backend.vercel.app/api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc)
