@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import httpStatus from "http-status";
 
 import { Secret } from "jsonwebtoken";
+
 import config from "../../../config";
 import ApiError from "../../../errors/ApiError";
 import { jwtHelpers } from "../../../helpers/jwtHelpers";
@@ -63,6 +64,7 @@ const loginUser = async (payload: { email: string, password: string }) => {
 
           return await bcrypt.compare(givenPassword, savedPassword);
      }
+
      const isUserExist = await prisma.user.findUnique({ where: { email } });
 
      if (!isUserExist) {
