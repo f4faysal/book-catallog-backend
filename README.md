@@ -107,18 +107,18 @@ The following API endpoints are available:
 #### User
 
 - https://book-catallog-backend.vercel.app/api/v1/users (GET)
-- https://book-catallog-backend.vercel.app/api/v1/users/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
-- https://book-catallog-backend.vercel.app/api/v1/users/6177a5b87d32123f08d2f5d4 (PATCH)
-- https://book-catallog-backend.vercel.app/api/v1/users/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved in your database
+- https://book-catallog-backend.vercel.app/api/v1/users/b80a91c1-49f2-4483-be34-5ccf8a81b711 (Single GET)
+- https://book-catallog-backend.vercel.app/api/v1/users/b80a91c1-49f2-4483-be34-5ccf8a81b711 (PATCH)
+- https://book-catallog-backend.vercel.app/api/v1/users/b80a91c1-49f2-4483-be34-5ccf8a81b711 (DELETE)
 - https://book-catallog-backend.vercel.app/api/v1/profile (GET)
 
 ### Category
 
 - https://book-catallog-backend.vercel.app/api/v1/categories/create-category (POST)
 - https://book-catallog-backend.vercel.app/api/v1/categories (GET)
-- https://book-catallog-backend.vercel.app/api/v1/categories/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
-- https://book-catallog-backend.vercel.app/api/v1/categories/6177a5b87d32123f08d2f5d4 (PATCH)
-- https://book-catallog-backend.vercel.app/api/v1/categories/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved in your database
+- https://book-catallog-backend.vercel.app/api/v1/categories/172580a0-6aa1-44f8-abcc-90fce8a97415 (Single GET) Include an id that is saved in your database
+- https://book-catallog-backend.vercel.app/api/v1/categories/172580a0-6aa1-44f8-abcc-90fce8a97415 (PATCH)
+- https://book-catallog-backend.vercel.app/api/v1/categories/172580a0-6aa1-44f8-abcc-90fce8a97415 (DELETE) Include an id that is saved in your database
 
 ### Books
 
