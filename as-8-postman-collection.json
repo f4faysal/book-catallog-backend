@@ -1,0 +1,827 @@
+{
+	"info": {
+		"_postman_id": "1173de58-d54f-43df-b02e-dcfde1c3560c",
+		"name": "BooK Catagory S-8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27464345",
+		"_collection_link": "https://cloudy-moon-807845.postman.co/workspace/Team-Workspace~6eacc1e2-5c20-4282-80db-5501623d0fac/collection/27464345-1173de58-d54f-43df-b02e-dcfde1c3560c?action=share&source=collection_link&creator=27464345"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"User\",\r\n    \"email\": \"user@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"admin\",\r\n    \"contactNo\": \"1234567890\",\r\n    \"address\": \"Dhaka, Bangladesh\",\r\n    \"profileImg\": \"user.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/auth/signup",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"123456\"\r\n}\r\n//customer",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/auth/signin",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookurl}}/profile",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"profile"
+							],
+							"query": [
+								{
+									"key": "Au",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRW1haWwiOiJmYXlzYWxAc2wuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkzNTc2MjE0LCJleHAiOjE2OTM2NjI2MTR9.aBLIp9BipiJN81I9n_PBXyH8OFiDASmBeg_7t-FJGOo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookurl}}/users",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookurl}}/users/1cc9167f-d82e-4638-a769-3d8f13a994d7",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"users",
+								"1cc9167f-d82e-4638-a769-3d8f13a994d7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John\",\r\n  \"email\": \"john1@John.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/users/52a10320-442b-49de-b299-9317ba94e0b7",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"users",
+								"52a10320-442b-49de-b299-9317ba94e0b7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John\",\r\n  \"email\": \"john1@John.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/users/c1b1620a-91d4-47da-8e3b-50d7f44dbcd8",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"users",
+								"c1b1620a-91d4-47da-8e3b-50d7f44dbcd8"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"Programming\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/categories/create-category",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"categories",
+								"create-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookurl}}/categories",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookurl}}/categories/aff8ebfa-1646-48da-b94e-90caad62cb10",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"categories",
+								"aff8ebfa-1646-48da-b94e-90caad62cb10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\" : \"Ami Catagory\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/categories/a055f6ea-05cb-4cf3-871b-bd6927d9a4ff",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"categories",
+								"a055f6ea-05cb-4cf3-871b-bd6927d9a4ff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John\",\r\n  \"email\": \"john1@John.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/categories/a055f6ea-05cb-4cf3-871b-bd6927d9a4ff",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"categories",
+								"a055f6ea-05cb-4cf3-871b-bd6927d9a4ff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Math 2 Book\",\r\n  \"author\": \"Ami\",\r\n  \"genre\": \"BanglaDesh Sorkar\",\r\n  \"price\": 150.5,\r\n  \"publicationDate\": \"2022-01-20T12:01:30.543Z\",\r\n  \"categoryId\": \"172580a0-6aa1-44f8-abcc-90fce8a97415\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/books/create-book",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"books",
+								"create-book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://book-catallog-backend.vercel.app/api/v1/books/?page=1&limit=10&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc&minPrice=50&maxPrice=1000",
+							"protocol": "https",
+							"host": [
+								"book-catallog-backend",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "Faysal",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "aff8ebfa-1646-48da-b94e-90caad62cb10"
+								},
+								{
+									"key": "sortBy",
+									"value": "price"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								},
+								{
+									"key": "minPrice",
+									"value": "50"
+								},
+								{
+									"key": "maxPrice",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CategoryId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookurl}}/books/aff8ebfa-1646-48da-b94e-90caad62cb10/category/?page=1&limit=10",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"books",
+								"aff8ebfa-1646-48da-b94e-90caad62cb10",
+								"category",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookurl}}/books/8d8dd94b-33b7-4912-bf09-f8090f438795",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"books",
+								"8d8dd94b-33b7-4912-bf09-f8090f438795"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\" : \"50 Famous Book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/books/b3d6afb0-e300-4fa2-b405-ba7baaffeb34",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"books",
+								"b3d6afb0-e300-4fa2-b405-ba7baaffeb34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John\",\r\n  \"email\": \"john1@John.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/books/8d8dd94b-33b7-4912-bf09-f8090f438795",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"books",
+								"8d8dd94b-33b7-4912-bf09-f8090f438795"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderedBooks\": [\r\n        {\r\n            \"bookId\": \"b3d6afb0-e300-4fa2-b405-ba7baaffeb34\",\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"bookId\": \"dc04776b-94c3-4f6a-aad3-0a3bdc9424a2\",\r\n            \"quantity\": 4\r\n        },\r\n        {\r\n            \"bookId\": \"f9201444-9522-4bac-a939-280cfd250567\",\r\n            \"quantity\": 4\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/orders/create-order",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"orders",
+								"create-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookurl}}/orders/",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{@@auth@@}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookurl}}/orders/d83eb0f3-6a6d-4d56-8f6c-e98eb1cb6de6",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"orders",
+								"d83eb0f3-6a6d-4d56-8f6c-e98eb1cb6de6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ReviewAndRating",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"review\": \"Good\",\r\n    \"rating\": 4.0,\r\n    \"bookId\": \"c003664c-8791-493b-851d-0c3df85c5d08\",\r\n    \"userId\": \"bbbc2d7a-1cec-48d2-80f2-4ce986e14cce\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/review-and-rating/create-review",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"review-and-rating",
+								"create-review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookurl}}/books/",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookurl}}/books/8d8dd94b-33b7-4912-bf09-f8090f438795",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"books",
+								"8d8dd94b-33b7-4912-bf09-f8090f438795"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\" : \"18+\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/books/8d8dd94b-33b7-4912-bf09-f8090f438795",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"books",
+								"8d8dd94b-33b7-4912-bf09-f8090f438795"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John\",\r\n  \"email\": \"john1@John.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookurl}}/books/8d8dd94b-33b7-4912-bf09-f8090f438795",
+							"host": [
+								"{{bookurl}}"
+							],
+							"path": [
+								"books",
+								"8d8dd94b-33b7-4912-bf09-f8090f438795"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bookurl",
+			"value": "https://book-catallog-backend.vercel.app/api/v1/",
+			"type": "string"
+		},
+		{
+			"key": "@@auth@@",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdjNGQ3ZS01MDA1LTQ1YTEtOWE0OC03NzkwNmU2YTc3YjEiLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE2OTM2ODk4NjMsImV4cCI6MTY5Mzc3NjI2M30.-r8n_er6gOFSQ5j6ZZ8ZqenX5pbhWc7yyILzwWB9IZg",
+			"type": "string"
+		}
+	]
+}

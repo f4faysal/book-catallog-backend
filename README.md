@@ -153,3 +153,5 @@ For detailed information on how to use each endpoint, refer to the API documenta
 
 Contributions are welcome! Feel free to open issues or pull requests for any improvements or bug fixes.
 Happy coding! 3. Integrate this backend with the frontend or client application of your choice.
+
+### Videw API Documentation: [https://documenter.getpostman.com/view/28487392/2s9Y5cufrp#31a6e93e-6a38-4ecb-bea3-bc4b61bdb208](https://documenter.getpostman.com/view/28487392/2s9Y5cufrp#31a6e93e-6a38-4ecb-bea3-bc4b61bdb208)
