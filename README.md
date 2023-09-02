@@ -40,13 +40,13 @@ Before you begin, ensure you have met the following requirements:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/book-listing-backend.git
+ https://github.com/f4faysal/book-catallog-backend.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd book-listing-backend
+   cd book-catallog-backend
    ```
 
 3. Install dependencies:
