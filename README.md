@@ -131,7 +131,7 @@ The following API endpoints are available:
 - Sort, Filter, Pagination (GET) Example: [Link to Example API](https://book-catallog-backend.vercel.app/api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc)
 
 ```bash
-   aphttps://book-catallog-backend.vercel.app/api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc
+   https://book-catallog-backend.vercel.app/api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc
 ```
 
 - https://book-catallog-backend.vercel.app/api/v1/books/create-book (POST)
