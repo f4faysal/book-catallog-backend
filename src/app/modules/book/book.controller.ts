@@ -22,6 +22,7 @@ const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
 const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
 
      const filters = pick(req.query, bookFilterableFields);
+     console.log(req.query)
      const paginationOptions = pick(req.query, paginationFields);
 
 
