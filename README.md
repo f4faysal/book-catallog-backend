@@ -60,7 +60,7 @@ Before you begin, ensure you have met the following requirements:
    Create a `.env` file in the project root directory and configure the following variables:
 
    ```env
-   PORT=3000  # The port on which the server will run
+   PORT=5000  # The port on which the server will run
    DATABASE_URL=postgresql://your-username:your-password@localhost:5432/your-database-name  # PostgreSQL connection URL
    ```
 
@@ -117,7 +117,8 @@ The following API endpoints are available:
    api/v1/books/?page=1&limit=10&search=Faysal&minPrice=250&maxPrice=500&category=75e203d3-6b59-4c00-8ef8-a5319b1aeee6
 ```
 
-- Sort, Filter, Pagination (GET) Example:
+- Sort, Filter, Pagination (GET) Example: [Link to Example API](https://example.com/api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc)
+
 
 ```bash
    api/v1/books/?page=1&limit=10&minPrice=50&maxPrice=1000&category=aff8ebfa-1646-48da-b94e-90caad62cb10&sortBy=price&sortOrder=desc
