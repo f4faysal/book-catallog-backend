@@ -16,9 +16,12 @@ const getAllFromDB = async (): Promise<Category[]> => {
 }
 
 
-const getByIdFromDB = async (id: string): Promise<Category | null> => {
+const getByIdFromDB = async (id: string) => {
      const result = await prisma.category.findUnique({ where: { id } });
-     return result;
+
+     const books = await prisma.book.findMany({ where: { categoryId: id } });
+
+     return { ...result, books };
 }
 
 const updateIntoDB = async (id: string, payload: Category): Promise<Category | null> => {

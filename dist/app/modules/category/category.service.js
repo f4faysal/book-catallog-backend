@@ -24,7 +24,8 @@ const getAllFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 const getByIdFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma_1.default.category.findUnique({ where: { id } });
-    return result;
+    const books = yield prisma_1.default.book.findMany({ where: { categoryId: id } });
+    return Object.assign(Object.assign({}, result), { books });
 });
 const updateIntoDB = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma_1.default.category.update({ where: { id }, data: payload });
