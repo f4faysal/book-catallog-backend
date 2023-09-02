@@ -88,13 +88,25 @@ To use the Book Listing Application backend, follow these steps:
 
 The following API endpoints are available:
 
-### Live Link: https://example.com
+### Live Link: [https://book-catallog-backend.vercel.app/api/v1/](https://book-catallog-backend.vercel.app/api/v1/)
 
 ### Application Routes:
 
-#### User
+### Auth
 
 - api/v1/auth/signup (POST)
+- api/v1/auth/signin (POST)
+- sign in body example data:
+  ```bash
+   {
+    "email": "admin@gmail.com",
+    "password": "123456"
+    }
+  ```
+  
+#### User
+
+
 - api/v1/users (GET)
 - api/v1/users/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
 - api/v1/users/6177a5b87d32123f08d2f5d4 (PATCH)
